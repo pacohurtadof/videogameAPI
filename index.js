@@ -19,6 +19,12 @@ app.get('/games', (req, res) => {
     res.status(200).send(jsonGames)
 } )
 
+app.get('/ping', (req, res) => {
+    res.status(200).send({
+        "status": "up and running"
+    })
+} )
+
 app.listen(
     PORT,
     () => console.log('Its alive on http://localhost:'+ PORT)
