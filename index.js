@@ -16,7 +16,7 @@ jsonGames = [
 ]
 
 
-app.get('/getGames', (req,  res) => {
+app.get('/getGames', (req, res) => {
     res.status(200).send(jsonGames)
 } )
 
