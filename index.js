@@ -13,7 +13,7 @@ jsonGamesWeek = [
 ]
 
 jsonGamesMonth = [
-    {"title": "Palworld", "date": "2024-01", "platform": ["PC"]},
+    {"title": "Palworld", "date": "2024-01-01", "platform": ["PC"]},
     {"title": "Ineth", "date": "2024-01-01", "platform": ["PC"]},
     {"title": "Open Air", "date": "2024-01-01", "platform": ["PC"]},
     {"title": "Portal Revolution", "date": "2024-01-05", "platform": ["PC"]},
