@@ -3,14 +3,6 @@ const app = express();
 const PORT = 8080;
 
 app.use(express.json())
-jsonGamesWeek = [
-    {"title": "Palworld", "date": "2023-01-01", "platform": ["PC"]},
-    {"title": "Ineth", "date": "2023-01-01", "platform": ["PC"]},
-    {"title": "Open Air", "date": "2023-01-01", "platform": ["PC"]},
-    {"title": "Portal Revolution", "date": "2023-01-05", "platform": ["PC"]},
-    {"title": "Shivering Stone", "date": "2023-01-05", "platform": ["PC", "PS5", "PS4", "Switch", "XBX/S", "XBO"]},
-    {"title": "Tools Up! Ultimate Edition", "date": "2023-01-05", "platform": ["PC", "PS4", "Switch", "XBO"]}
-]
 
 jsonGamesMonth = [
     {"title": "Palworld", "date": "2024-01-01", "platform": ["PC"]},
@@ -66,7 +58,18 @@ jsonGamesMonth = [
 
 
 app.get('/getWeekGames', (req, res) => {
-    res.status(200).send(jsonGamesWeek)
+    today = new Date();
+    var futureDate = new Date();
+    futureDate.setDate(today.getDate() + 7);
+    let weeklyGames = []
+    jsonGamesMonth.forEach(element => {
+        let formattedDate = new Date(element.date);
+        //console.log(element.date, formattedDate > today && formattedDate < futureDate)
+        if (formattedDate > today && formattedDate < futureDate) {
+            weeklyGames.push(element)
+        }
+    });
+    res.status(200).send(weeklyGames)
 } )
 
 app.get('/getMonthGames', (req, res) => {
